@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zsn.mapper.ClassMapper" >
+  <resultMap id="BaseResultMap" type="com.zsn.pojo.Class" >
+    <id column="claas_id" property="claasId" jdbcType="INTEGER" />
+    <result column="class_techer_sno" property="classTecherSno" jdbcType="VARCHAR" />
+    <result column="class_dep" property="classDep" jdbcType="VARCHAR" />
+    <result column="class_c" property="classC" jdbcType="VARCHAR" />
+    <result column="class_location" property="classLocation" jdbcType="VARCHAR" />
+    <result column="class_week" property="classWeek" jdbcType="VARCHAR" />
+    <result column="class_num" property="classNum" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    claas_id, class_techer_sno, class_dep, class_c, class_location, class_week, class_num
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from class
+    where claas_id = #{claasId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from class
+    where claas_id = #{claasId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zsn.pojo.Class" >
+    insert into class (claas_id, class_techer_sno, class_dep, 
+      class_c, class_location, class_week, 
+      class_num)
+    values (#{claasId,jdbcType=INTEGER}, #{classTecherSno,jdbcType=VARCHAR}, #{classDep,jdbcType=VARCHAR}, 
+      #{classC,jdbcType=VARCHAR}, #{classLocation,jdbcType=VARCHAR}, #{classWeek,jdbcType=VARCHAR}, 
+      #{classNum,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zsn.pojo.Class" >
+    insert into class
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="claasId != null" >
+        claas_id,
+      </if>
+      <if test="classTecherSno != null" >
+        class_techer_sno,
+      </if>
+      <if test="classDep != null" >
+        class_dep,
+      </if>
+      <if test="classC != null" >
+        class_c,
+      </if>
+      <if test="classLocation != null" >
+        class_location,
+      </if>
+      <if test="classWeek != null" >
+        class_week,
+      </if>
+      <if test="classNum != null" >
+        class_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="claasId != null" >
+        #{claasId,jdbcType=INTEGER},
+      </if>
+      <if test="classTecherSno != null" >
+        #{classTecherSno,jdbcType=VARCHAR},
+      </if>
+      <if test="classDep != null" >
+        #{classDep,jdbcType=VARCHAR},
+      </if>
+      <if test="classC != null" >
+        #{classC,jdbcType=VARCHAR},
+      </if>
+      <if test="classLocation != null" >
+        #{classLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="classWeek != null" >
+        #{classWeek,jdbcType=VARCHAR},
+      </if>
+      <if test="classNum != null" >
+        #{classNum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zsn.pojo.Class" >
+    update class
+    <set >
+      <if test="classTecherSno != null" >
+        class_techer_sno = #{classTecherSno,jdbcType=VARCHAR},
+      </if>
+      <if test="classDep != null" >
+        class_dep = #{classDep,jdbcType=VARCHAR},
+      </if>
+      <if test="classC != null" >
+        class_c = #{classC,jdbcType=VARCHAR},
+      </if>
+      <if test="classLocation != null" >
+        class_location = #{classLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="classWeek != null" >
+        class_week = #{classWeek,jdbcType=VARCHAR},
+      </if>
+      <if test="classNum != null" >
+        class_num = #{classNum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where claas_id = #{claasId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zsn.pojo.Class" >
+    update class
+    set class_techer_sno = #{classTecherSno,jdbcType=VARCHAR},
+      class_dep = #{classDep,jdbcType=VARCHAR},
+      class_c = #{classC,jdbcType=VARCHAR},
+      class_location = #{classLocation,jdbcType=VARCHAR},
+      class_week = #{classWeek,jdbcType=VARCHAR},
+      class_num = #{classNum,jdbcType=VARCHAR}
+    where claas_id = #{claasId,jdbcType=INTEGER}
+  </update>
+
+  <select id="queryAllClass" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from class
+  </select>
+</mapper>

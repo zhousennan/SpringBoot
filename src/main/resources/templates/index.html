@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html  lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <table>
+      <tr>
+          <td>编号</td>
+          <td>课程名称</td>
+          <td>系别</td>
+          <td>地点</td>
+          <td>第几节 </td>
+
+      </tr>
+      <tr th:each="x:${classList}">
+          <td th:text="${x.claasId}"></td>
+          <td th:text="${x.classC}"></td>
+          <td th:text="${x.classDep}"></td>
+          <td th:text="${x.classLocation}"></td>
+          <td th:text="${x.classWeek}"></td>
+      </tr>
+
+  </table>
+</body>
+</html>
