@@ -1,7 +1,7 @@
 package com.zsn.controller;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TestController {
-    @Value("${user.name}")
+    @Value("${user.mz}")
     private String name;
     @Value("${user.age}")
     private Integer age;

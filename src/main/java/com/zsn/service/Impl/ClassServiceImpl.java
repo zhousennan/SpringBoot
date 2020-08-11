@@ -1,9 +1,8 @@
-package com.zsn.service.ClasssServiceImpl;
+package com.zsn.service.Impl;
 
 import com.zsn.mapper.ClassMapper;
 import com.zsn.pojo.Class;
 import com.zsn.service.ClassService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
