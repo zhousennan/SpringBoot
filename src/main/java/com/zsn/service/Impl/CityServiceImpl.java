@@ -4,12 +4,11 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zsn.mapper.CityMapper;
 import com.zsn.pojo.City;
+import com.zsn.pojo.Result;
 import com.zsn.pojo.SearchVo;
 import com.zsn.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.swing.text.html.Option;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -29,13 +28,34 @@ public class CityServiceImpl implements CityService {
     }
     public PageInfo<City> PageInfoCity(int countryId, SearchVo searchVo){
         PageHelper.startPage(searchVo.getCurrentPage(),searchVo.getPageSize());
-
-
         return new PageInfo<City>(
                 Optional.ofNullable(cityMapper.getCityByCountryId(countryId))
                         .orElse(Collections.emptyList()));
+    }
 
+    @Override
+    public PageInfo<City> getCityBySearchVo(SearchVo searchVo) {
+        PageHelper.startPage(searchVo.getCurrentPage(),searchVo.getPageSize());
 
+        return new PageInfo<City>(Optional.ofNullable(cityMapper.getCityBySearchVo(searchVo)).orElse(Collections.emptyList()));
+    }
+
+    @Override
+    public Result<City> insertCity(City city) {
+        cityMapper.insertCity(city);
+        return new Result<City>(Result.ResultStatus.SUCCESS.status,"insert success.",city);
+    }
+
+    @Override
+    public Result<City> updateCity(City city) {
+        cityMapper.updateCity(city);
+        return new Result<>(Result.ResultStatus.SUCCESS.status,"update success.",city);
+    }
+
+    @Override
+    public Result<Object> deletedCity(int cityId) {
+        cityMapper.deletedCity(cityId);
+        return new Result<Object>(Result.ResultStatus.SUCCESS.status,"deleted success");
     }
 
 }
