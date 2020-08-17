@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 引入碎片文件 header.html-->
+<div th:replace="fragments/header"></div>
+
+<!-- 引入碎片文件 sidebar.html-->
+<div th:replace="fragments/sidebar"></div>
+
+<!-- body content -->
+<div th:if="${template}">
+    <div th:replace="${template}"></div>
+</div>
+
+<!-- 引入碎片文件 footer.html-->
+<div th:replace="fragments/footer::footer"></div>
+</body>
+</html>
