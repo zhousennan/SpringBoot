@@ -1,0 +1,116 @@
+一，选择题
+	以下哪个不是python解释器D
+		CPython
+		IPython
+		Jython
+		py
+	下列哪个表达式在Python中是非法的？B
+		x = y = z = 1
+		x = (y = z + 1)
+		x, y = y, x
+		x += y
+	print("%d %% %d"%(3, 5)) 输出结果是？A
+		3 % 5
+		3 %% 5
+		2
+		1
+	“今年第一季度GDP提高了x%”，x为float值，格式化字符串，x保留两位小数，下面哪个是正确的？ B
+		print("今年第一季度GDP提高了%.2f"%(22.234,))
+		print("今年第一季度GDP提高了%.2f%"%(22.234,))
+		print("今年第一季度GDP提高了%.2f%%"%(22.234,))
+		print("今年第一季度GDP提高了{0}%".format(22.234))
+	l = ["cdsa", 32, 33.2, None, True];l.pop();print(l);打印结果是：C
+		["cdsa", 32, 33.2, True]
+		["cdsa", 32, None, True]
+		["cdsa", 32, 33.2, None]
+		[32, 33.2, None, True]
+	print(15 // 2);
+		1
+		7
+		7.5
+		8
+	下面哪个不是 python 的数据类型 D
+		int
+		str
+		set
+		double
+	*args 代表什么参数 B
+		位置参数
+		可变参数
+		可变关键字参数
+		命名关键字参数
+	函数多个返回值，实际上返回的是什么数据类型？A
+		list
+		set
+		tuple
+		dict
+	安装Django2.0.7版本，使用的什么命令？C
+		pip install django
+		pip install django=2.0.7
+		pip install django==2.0.7
+		pip install django version=2.0.7
+
+二、填空题
+	字符串前面添加u、r、b分别代表什么？
+	r普通字符 u表示unicode字符串 b后面字符串是bytes 类型。
+	requests模块请求远程服务器，如何设置相应编码？
+	r.encoding：从 HTTP header 中猜测的响应内容编码方式，如果 header 中不存在 charset，默认为 iso-8859-1；
+	windows下执行python的方式；
+	python manage.py runserver 0.0.0.0:8080
+	创建python package，会自动生成什么文件？
+	__init__.py
+	python变量作用域有哪些？
+	L （Local）局部作用域；
+	E （Enclosing）闭包函数外的函数中；
+	G （Global） 全局作用域；
+	B （Built-in） 内建作用域；
+三、问答题
+	python命名规则？
+	字母、数字、下划线，但是数字不能做为开头；
+	不能是 Python 关键字，但可以包含关键字；
+	常量：全大写，用下划线连接单词，全大写只是大家约定俗成表示常量而已；
+	全局变量：__xxx，双下划线开头，若想在函数内部对外部变量进行操作，需要在内部声明为global
+	
+	set删除操作中，pop、remove的区别？
+
+	pop:删除集合中指定位置元素
+	remove：移除下标从1开始
+	
+	list使用+=和append函数的区别？
+	+=:将后面集合的元素添加到前面集合
+	append:将append的整体作为一个元素纳入前面集合；
+	
+	使用bs4解析响应内容，获取某div（class为aaa）下所有span节点；
+	span_list = bs.find(name="div",attrs={"class":"aaa"}).find_all(name="span");
+
+	简述Django操作流程、组件的作用；
+	下载组件Django  pip install django==2.0.7 ---- 指定版本安装；
+	创建项目django-admin startproject python_django_demo
+	python_django_demo：项目容器；
+	manage.py：一个实用的命令行工具，可让你以各种方式与该 Django 项目进行交互；
+	python_django_demo/__init__.py：一个空文件，告诉 Python 该目录是一个 Python 包；
+	settings.py：该 Django 项目的设置/配置；
+	urls.py：该 Django 项目的 URL 声明，一份由 Django 驱动的网站"目录"；
+	asgi.py：一个 ASGI 兼容的 Web 服务器的入口，以便运行你的项目；
+	wsgi.py：一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目；
+	
+四、编程题
+	定义一个函数，接受 0 个或多个参数，返回累计乘积；
+	def prodouct(*num):
+    n = 1
+    for x in num:
+        n = n * x
+    return n
+	
+	
+	
+	定义一个函数，去掉字符串前后的空格；
+	def test():
+		str = '  test  12121  '
+		str2 = str.strip()
+		str3 = re.sub(' ','',str)
+		print(str3)
+	
+	
+	
+	
